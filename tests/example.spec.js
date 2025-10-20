@@ -1,7 +1,7 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('load Playwright Agents video - From MCP to Playwright Agents', async ({ page }) => {
+test('load Playwright Agents video 1', async ({ page }) => {
   // Navigate to the first YouTube video about Playwright Agents
   await page.goto('https://www.youtube.com/watch?v=_AifxZGxwuk');
 
@@ -13,12 +13,12 @@ test('load Playwright Agents video - From MCP to Playwright Agents', async ({ pa
   expect(title).toContain('Playwright');
 
   // Take screenshot
-  await page.screenshot({ path: 'playwright-agents-mcp.png' });
+  await page.screenshot({ path: 'playwright-agents-video-1.png' });
 
   console.log('Video 1 loaded:', title);
 });
 
-test('load Playwright Agents video - Under the Hood', async ({ page }) => {
+test('load Playwright Agents video 2', async ({ page }) => {
   // Navigate to the second YouTube video
   await page.goto('https://www.youtube.com/watch?v=HLegcP8qxVY');
 
@@ -30,7 +30,7 @@ test('load Playwright Agents video - Under the Hood', async ({ page }) => {
   expect(title).toContain('Playwright');
 
   // Take screenshot
-  await page.screenshot({ path: 'playwright-agents-deep-dive.png' });
+  await page.screenshot({ path: 'playwright-agents-video-2.png' });
 
   console.log('Video 2 loaded:', title);
 });

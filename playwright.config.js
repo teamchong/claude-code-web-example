@@ -13,7 +13,14 @@ module.exports = defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     launchOptions: {
-      args: ['--no-proxy-server'],
+      args: [
+        '--no-proxy-server',
+        '--disable-features=NetworkService',
+      ],
+      env: {
+        NO_PROXY: '*',
+        no_proxy: '*',
+      },
     },
   },
 
