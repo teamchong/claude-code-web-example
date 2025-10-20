@@ -1,28 +1,36 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('basic test to verify Playwright works', async ({ page }) => {
-  // Navigate to example.com to verify basic functionality
-  await page.goto('https://example.com');
+test('load Playwright Agents video - From MCP to Playwright Agents', async ({ page }) => {
+  // Navigate to the first YouTube video about Playwright Agents
+  await page.goto('https://www.youtube.com/watch?v=_AifxZGxwuk');
 
-  // Check the page title
-  await expect(page).toHaveTitle(/Example Domain/);
-
-  // Verify the heading exists
-  const heading = page.locator('h1');
-  await expect(heading).toBeVisible();
-  await expect(heading).toHaveText('Example Domain');
-});
-
-test('verify Claude AI web loads', async ({ page }) => {
-  // Test if claude.ai is accessible
-  await page.goto('https://claude.ai');
-
-  // Wait for page to load (basic check)
+  // Wait for page to load
   await page.waitForLoadState('networkidle');
 
-  // Take a screenshot for visual verification
-  await page.screenshot({ path: 'claude-ai-homepage.png' });
+  // Verify video title contains expected text
+  const title = await page.title();
+  expect(title).toContain('Playwright');
 
-  console.log('Claude AI page loaded successfully');
+  // Take screenshot
+  await page.screenshot({ path: 'playwright-agents-mcp.png' });
+
+  console.log('Video 1 loaded:', title);
+});
+
+test('load Playwright Agents video - Under the Hood', async ({ page }) => {
+  // Navigate to the second YouTube video
+  await page.goto('https://www.youtube.com/watch?v=HLegcP8qxVY');
+
+  // Wait for page to load
+  await page.waitForLoadState('networkidle');
+
+  // Verify video title
+  const title = await page.title();
+  expect(title).toContain('Playwright');
+
+  // Take screenshot
+  await page.screenshot({ path: 'playwright-agents-deep-dive.png' });
+
+  console.log('Video 2 loaded:', title);
 });

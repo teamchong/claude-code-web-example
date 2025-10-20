@@ -9,9 +9,12 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'https://claude.ai',
+    baseURL: 'https://www.youtube.com',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    launchOptions: {
+      args: ['--no-proxy-server'],
+    },
   },
 
   projects: [
