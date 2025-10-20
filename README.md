@@ -4,21 +4,16 @@ Playwright testing project for Claude Code web interface.
 
 ## Quick Start
 
-One command to set up everything:
+**One command to setup and run tests:**
 
 ```bash
-npm install
+npm start
 ```
 
 This will:
 - Install all dependencies
-- Auto-install Chromium browser (via postinstall hook)
-
-Then run tests:
-
-```bash
-npm test
-```
+- Auto-install Chromium browser
+- Run all tests
 
 ## Available Commands
 
